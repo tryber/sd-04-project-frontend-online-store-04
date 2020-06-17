@@ -19,7 +19,7 @@ export class Busca extends Component {
       return (
         <div>
           <span data-testid="shopping-cart-button">
-            <img src={shoppingcart} alt="button"></img>
+            <img src={shoppingcart} alt="button" />
           </span>
           <p data-testid="home-initial-message">
             Digite algum termo de pesquisa ou escolha uma categoria.
