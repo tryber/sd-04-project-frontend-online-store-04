@@ -6,8 +6,8 @@ import SearchBar from './components/SearchBar';
 function App() {
   return (
     <div className="App">
-      <Categories />
       <SearchBar />
+      <Categories />
     </div>
   );
 }
