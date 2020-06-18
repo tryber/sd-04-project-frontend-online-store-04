@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CategoriesCard from '../components/CategoriesCard'; /* saiu da pasta pra voltar pra mesma pasta */
+import CategoriesCard from './CategoriesCard'; /* saiu da pasta pra voltar pra mesma pasta */
 import * as api from '../services/api';
 
 class Categories extends Component {

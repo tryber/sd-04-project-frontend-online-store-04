@@ -9,6 +9,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={pages.Main} />
+          <Route path="/cart" component={pages.Cart} />
           <Route component={pages.NotFound} />
         </Switch>
       </Router>
