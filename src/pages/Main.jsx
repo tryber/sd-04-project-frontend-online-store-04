@@ -45,7 +45,7 @@ export class Main extends Component {
         <div className="categories">
           <Components.Categories />
         </div>
-        <div style={{display: 'none' }}>
+        <div style={{ display: 'none' }}>
           <Components.ShopingCart />
         </div>
       </div>
