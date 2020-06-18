@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import shoppingcart from '../images/shopping-cart.jpg';
 
 export class Busca extends Component {
 
@@ -16,9 +17,14 @@ export class Busca extends Component {
     const { item } = this.state;
     if (item === '') {
       return (
-        <p data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </p>
+        <div>
+          <span data-testid="shopping-cart-button">
+            <img src={shoppingcart} alt="button" />
+          </span>
+          <p data-testid="home-initial-message">
+            Digite algum termo de pesquisa ou escolha uma categoria.
+          </p>
+        </div>
       );
     }
     return <p>{item}</p>;
