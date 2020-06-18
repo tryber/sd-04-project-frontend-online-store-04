@@ -1,15 +1,17 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
-import Categories from './components/Categories';
-import SearchBar from './components/SearchBar';
-import ShoppingCart from './components/ShoppingCart';
+import * as pages from './pages';
 
 function App() {
   return (
-    <div className="App">
-      <SearchBar />
-      <ShoppingCart />
-      <Categories />
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={pages.Main} />
+          <Route component={pages.NotFound} />
+        </Switch>
+      </Router>
     </div>
   );
 }

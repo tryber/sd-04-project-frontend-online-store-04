@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CategoriesCard from '../components/CategoriesCard';
+import CategoriesCard from '../components/CategoriesCard'; /* saiu da pasta pra voltar pra mesma pasta */
 import * as api from '../services/api';
 
 class Categories extends Component {
@@ -15,7 +15,7 @@ class Categories extends Component {
 
   render() {
     const { categories } = this.state;
-    if (categories === '') return <div>Loading...</div>;
+    if (categories === '') return <div>Loading...</div>; /* não tem nessecidade dessa linha */
     return (
       <div>
         {categories.map((element) => <CategoriesCard key={element.id} categorie={element} />)}
