@@ -6,6 +6,12 @@ export async function getCategories() {
 }
 
 export async function getProductsFromCategoryAndQuery(categoryId, query) {
+  if (!query) {
+    const API = `https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}`;
+    return fetch(API)
+      .then((response) => response.json())
+      .then((data) => data);
+  }
   const API = `https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}&q=${query}`;
   return fetch(API)
     .then((response) => response.json())
