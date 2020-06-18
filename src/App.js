@@ -7,9 +7,11 @@ import ShoppingCart from './components/ShoppingCart';
 function App() {
   return (
     <div className="App">
-      <SearchBar />
-      <ShoppingCart />
-      <Categories />
+      <div className="container-bar-cart">
+        <SearchBar className='search-bar'/>
+        <ShoppingCart className='shopping-cart' />
+      </div>
+      <Categories className='categories'/>
     </div>
   );
 }

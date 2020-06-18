@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CategoriesCard from '../components/CategoriesCard';
 import * as api from '../services/api';
+import '../Layouts/Categories.css';
 
 class Categories extends Component {
   constructor(props) {
@@ -17,9 +18,10 @@ class Categories extends Component {
     const { categories } = this.state;
     if (categories === '') return <div>Loading...</div>;
     return (
-      <div>
-        {categories.map((element) => <CategoriesCard key={element.id} categorie={element} />)}
+      <div className="categories-board">
+        {categories.map((element) => <CategoriesCard key={element.id} categorie={element}/>)}
       </div>
+      
     );
   }
 }

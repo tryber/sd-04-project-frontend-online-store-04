@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import shoppingcart from '../images/shopping-cart.jpg';
+import '../Layouts/SearchBar.css';
 
 export class Busca extends Component {
 
@@ -17,7 +18,7 @@ export class Busca extends Component {
     const { item } = this.state;
     if (item === '') {
       return (
-        <div>
+        <div className='search-bar'>
           <span data-testid="shopping-cart-button">
             <img src={shoppingcart} alt="button" />
           </span>
@@ -33,7 +34,7 @@ export class Busca extends Component {
   render() {
     return (
       <div>
-        <input type="text" onChange={this.textChange} />
+        <input className='input-text' type="text" onChange={this.textChange} />
         {this.textInput()}
       </div>
     );
