@@ -41,6 +41,9 @@ export class Main extends Component {
         <div className="categories">
           <Components.Categories />
         </div>
+        <div>
+          <Components.ShopingCart />
+        </div>
       </div>
     );
   }
