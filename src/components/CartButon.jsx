@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import shoppingcart from '../images/shopping-cart.jpg';
+// import shoppingcart from '../images/shopping-cart.jpg';
 
 class ButtonCart extends Component {
   constructor(args) {
