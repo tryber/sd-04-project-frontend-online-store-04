@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CategoriesCard from '../components/CategoriesCard';
+import CategoriesCard from './CategoriesCard'; /* saiu da pasta pra voltar pra mesma pasta */
 import * as api from '../services/api';
 import '../Layouts/Categories.css';
 
@@ -16,7 +16,7 @@ class Categories extends Component {
 
   render() {
     const { categories } = this.state;
-    if (categories === '') return <div>Loading...</div>;
+    if (categories === '') return <div>Loading...</div>; /* não tem nessecidade dessa linha */
     return (
       <div className="categories-board">
         {categories.map((element) => <CategoriesCard key={element.id} categorie={element}/>)}
