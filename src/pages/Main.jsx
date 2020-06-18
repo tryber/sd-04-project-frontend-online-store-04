@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as Components from '../components';
+import shoppingcart from '../images/shopping-cart.jpg';
 // import * as api from '../services/api';
 
 export class Main extends Component {
@@ -18,9 +19,9 @@ export class Main extends Component {
     if (item === '') {
       return (
         <div>
-          {/* <span data-testid="shopping-cart-button">
+          <span data-testid="shopping-cart-button">
             <img src={shoppingcart} alt="button" />
-          </span> */}
+          </span>
           <p data-testid="home-initial-message">
             Digite algum termo de pesquisa ou escolha uma categoria.
           </p>
