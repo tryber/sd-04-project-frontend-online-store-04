@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import * as Components from '../components';
 import shoppingcart from '../images/shopping-cart.jpg';
 // import * as api from '../services/api';
@@ -20,7 +21,9 @@ export class Main extends Component {
       return (
         <div>
           <span data-testid="shopping-cart-button">
-            <img src={shoppingcart} alt="button" />
+            <Link to="/cart">
+              <img src={shoppingcart} alt="button" />
+            </Link>
           </span>
           <p data-testid="home-initial-message">
             Digite algum termo de pesquisa ou escolha uma categoria.
@@ -37,11 +40,12 @@ export class Main extends Component {
         <div>
           <input type="text" onChange={this.textChange} />
           {this.textInput()}
+          {/* <Components.CartButon data-testid="shopping-cart-button" /> */}
         </div>
         <div className="categories">
           <Components.Categories />
         </div>
-        <div>
+        <div style={{display: 'none' }}>
           <Components.ShopingCart />
         </div>
       </div>
