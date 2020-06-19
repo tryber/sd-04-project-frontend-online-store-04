@@ -8,20 +8,20 @@ class Details extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    this.setState({ product: id })
+    this.setState({ product: id });
   }
 
   render() {
-    const { title, thumbnail, price, available_quantity } = this.props.location.state;
-    return(
+    const { title, thumbnail, price, availableQuantity } = this.props.location.state;
+    return (
       <div>
         <h2>{this.state.product}</h2>
         <h3 data-testid="product-detail-name">{title}</h3>
         <img src={thumbnail} alt="product-image" />
         <h3>{price}</h3>
-        <h4>{available_quantity}</h4>
+        <h4>{availableQuantity}</h4>
       </div>
-    )
+    );
   }
 }
 
