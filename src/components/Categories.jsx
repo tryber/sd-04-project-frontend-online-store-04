@@ -21,7 +21,7 @@ class Categories extends Component {
   }
 
   render() {
-    const { categories } = this.state;
+    const { categories, products } = this.state;
     if (categories === '') return <div>Loading...</div>;
     return (
       <div className="categories-products">
@@ -31,7 +31,7 @@ class Categories extends Component {
           )}
         </div>
         <div>
-          <ProductsList products={this.state.products} />
+          <ProductsList products={products} />
         </div>
       </div>
     );

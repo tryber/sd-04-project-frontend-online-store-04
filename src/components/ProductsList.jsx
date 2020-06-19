@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class ProducsList extends Component {
+class ProductsList extends Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = {};
   }
+
   render() {
     const { products } = this.props;
     if (!products) return <div />;
     return (
       <div>
-        {products.map(({ id, title, thumbnail, price }) => (
+        {products.map(({ id, title, thumbnail, price, available_quantity }) => (
           <div data-testid="product" key={id}>
             <p>{title}</p>
-            <img src={thumbnail} alt="produto" />
+            <img src={thumbnail} alt="product" />
             <p>{`R$ ${price.toFixed(2)}`}</p>
-            <Link to={`/details/${id}`}>
-              <p>Ver Detalhes</p>
+            <Link
+              to={{
+                pathname: `/details/${id}`,
+                state: { id, title, thumbnail, price, available_quantity },
+              }}
+            >
+              <p data-testid="product-detail-link">Ver Detalhes</p>
             </Link>
           </div>
         ))}
@@ -26,4 +32,4 @@ class ProducsList extends Component {
   }
 }
 
-export default ProducsList;
+export default ProductsList;

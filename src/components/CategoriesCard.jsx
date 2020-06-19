@@ -8,6 +8,7 @@ class CategoriesCard extends Component {
       products: [],
     };
   }
+
   render() {
     const { categorie, getProducts } = this.props;
     const { name, id } = categorie;
