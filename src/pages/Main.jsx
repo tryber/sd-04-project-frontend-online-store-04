@@ -55,6 +55,9 @@ export class Main extends Component {
         <div className="categories">
           <Components.Categories />
         </div>
+        <div style={{ display: 'none' }}>
+          <Components.ShopingCart />
+        </div>
         <div>
           <ProductsList products={products} />
         </div>
