@@ -10,6 +10,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={pages.Main} />
           <Route path="/cart" component={pages.Cart} />
+          <Route path="/details/" component={pages.Details} />
           <Route component={pages.NotFound} />
         </Switch>
       </Router>

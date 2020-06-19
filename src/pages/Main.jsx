@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as Components from '../components';
 import shoppingcart from '../images/shopping-cart.jpg';
-// import * as api from '../services/api';
+import * as api from '../services/api';
+import ProductsList from '../components/ProductsList';
 
 export class Main extends Component {
   constructor(props) {
     super(props);
-    this.state = { item: '' };
+    this.state = { item: '', products: '' };
     this.textChange = this.textChange.bind(this);
+    this.getProducts = this.getProducts.bind(this);
   }
 
-  textChange(value) {
-    this.setState({ item: value.target.value });
+  getProducts(item) {
+    api.getProductsFromCategoryAndQuery(false, item)
+      .then((data) => this.setState({ products: data.results }));
   }
 
   textInput() {
@@ -20,11 +23,6 @@ export class Main extends Component {
     if (item === '') {
       return (
         <div>
-          <span data-testid="shopping-cart-button">
-            <Link to="/cart">
-              <img src={shoppingcart} alt="button" />
-            </Link>
-          </span>
           <p data-testid="home-initial-message">
             Digite algum termo de pesquisa ou escolha uma categoria.
           </p>
@@ -34,19 +32,34 @@ export class Main extends Component {
     return <p>{item}</p>;
   }
 
+  textChange(value) {
+    this.setState({ item: value.target.value });
+  }
+
   render() {
+    const { item, products } = this.state;
     return (
       <div>
         <div>
-          <input type="text" onChange={this.textChange} />
+          <input type="text" data-testid="query-input" onChange={this.textChange} />
+          <button data-testid="query-button" onClick={() => this.getProducts(item)}>
+            Pesquisar
+          </button>
           {this.textInput()}
-          {/* <Components.CartButon data-testid="shopping-cart-button" /> */}
         </div>
+        <span data-testid="shopping-cart-button">
+          <Link to="/cart">
+            <img src={shoppingcart} alt="button" />
+          </Link>
+        </span>
         <div className="categories">
           <Components.Categories />
         </div>
         <div style={{ display: 'none' }}>
           <Components.ShopingCart />
+        </div>
+        <div>
+          <ProductsList products={products} />
         </div>
       </div>
     );
