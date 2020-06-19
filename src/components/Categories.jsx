@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CategoriesCard from '../components/CategoriesCard';
+import CategoriesCard from './CategoriesCard';
 import * as api from '../services/api';
 import ProductsList from './ProductsList';
 
