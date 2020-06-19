@@ -29,7 +29,7 @@ class CategoriesCard extends Component {
           </label>
         </div>
       </div>
-    )
+    );
   }
 }
 
