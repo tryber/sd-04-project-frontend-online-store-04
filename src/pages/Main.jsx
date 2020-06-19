@@ -42,7 +42,7 @@ export class Main extends Component {
       <div>
         <div>
           <input type="text" data-testid="query-input" onChange={this.textChange} />
-          <button data-testid="query-button" onClick={() => this.getProducts(item)}>
+          <button type="button" data-testid="query-button" onClick={() => this.getProducts(item)}>
             Pesquisar
           </button>
           {this.textInput()}
