@@ -1,12 +1,33 @@
 import React, { Component } from 'react';
+// import * as api from '../services/api';
+// import ProductsList from './ProductsList';
 
 class CategoriesCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      categorie: this.props.categorie,
+      products: [],
+    };
+  }
+
   render() {
-    const { categorie } = this.props;
-    const { name } = categorie;
+    const { categorie, getProducts } = this.props;
+    const { name, id } = categorie;
     return (
-      <div data-testid="category">
-        <h4>{name}</h4>
+      <div>
+        <div key={id}>
+          <label htmlFor={id} data-testid="category">
+            <input
+              type="radio"
+              id={id}
+              name="categories"
+              value={name}
+              onClick={() => getProducts(id)}
+            />
+            {name}
+          </label>
+        </div>
       </div>
     );
   }
