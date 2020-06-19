@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import CategoriesCard from '../components/CategoriesCard';
+import CategoriesCard from './CategoriesCard';
 import * as api from '../services/api';
 import ProductsList from './ProductsList';
-import './categories.css'
+// import './categories.css';
 
 class Categories extends Component {
   constructor(props) {
@@ -16,9 +16,9 @@ class Categories extends Component {
       .then((result) => this.setState({ categories: result }));
   }
 
-  getProducts(categoryId){
+  getProducts(categoryId) {
     api.getProductsFromCategoryAndQuery(categoryId)
-      .then(data => this.setState({products: data.results}));
+      .then((data) => this.setState({ products: data.results }));
   }
 
   render() {
@@ -27,7 +27,13 @@ class Categories extends Component {
     return (
       <div className="categories-products">
         <div>
-          {categories.map((element) => <CategoriesCard key={element.id} categorie={element} getProducts={this.getProducts} />)}
+          {categories.map((element) => (
+            <CategoriesCard
+              key={element.id}
+              categorie={element}
+              getProducts={this.getProducts}
+            />
+          ))}
         </div>
         <div>
           <ProductsList products={this.state.products} />

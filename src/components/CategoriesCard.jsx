@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import * as api from '../services/api';
-import ProductsList from './ProductsList'
+// import * as api from '../services/api';
+// import ProductsList from './ProductsList';
 
 class CategoriesCard extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
       categorie: this.props.categorie,
       products: [],
-    }
+    };
   }
 
   render() {
