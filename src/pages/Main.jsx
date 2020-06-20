@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import * as Components from '../components';
 import shoppingcart from '../images/shopping-cart.jpg';
 import * as api from '../services/api';
