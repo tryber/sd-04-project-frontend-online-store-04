@@ -48,9 +48,7 @@ export class Main extends Component {
           {this.textInput()}
         </div>
         <span data-testid="shopping-cart-button">
-          <Link to="/cart">
-            <img src={shoppingcart} alt="button" />
-          </Link>
+          <img src={shoppingcart} alt="button" />
         </span>
         <div className="categories">
           <Components.Categories />
