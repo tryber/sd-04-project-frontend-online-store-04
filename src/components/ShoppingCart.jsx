@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import EmptyCart from './EmptyCart';
 
 export default class ShoppingCart extends React.Component {
@@ -25,7 +26,11 @@ export default class ShoppingCart extends React.Component {
             </button>
           </div>
         ))}
+        <Link to={{ pathname: '/checkout', state: { cartItems } }}>
+          <button data-testid="checkout-products">Finalizar compra</button>
+        </Link>
       </div>
     );
   }
 }
+
