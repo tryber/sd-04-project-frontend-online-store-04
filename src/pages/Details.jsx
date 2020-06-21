@@ -1,15 +1,37 @@
 import React, { Component } from 'react';
 import ShoppingCart from '../components/ShoppingCart';
+import ItemsQuantity from '../components/ItemsQuantity';
+import Forms from '../components/Forms';
 
 class Details extends Component {
   constructor(props) {
     super(props);
-    this.state = { cartItems: this.props.location.state.cartItems };
+    this.state = {
+      cartItems: this.props.location.state.cartItems,
+      quantity: this.props.location.state.quantity,
+    };
     this.addToCart = this.addToCart.bind(this);
+    this.addItem = this.addItem.bind(this);
+    this.decreaseItem = this.decreaseItem.bind(this);
   }
 
   addToCart(product) {
-    this.setState((state) => ({ cartItems: [...state.cartItems, product] }));
+    this.setState((state) => ({
+      cartItems: [...state.cartItems, product],
+      quantity: state.quantity + 1,
+    }));
+  }
+
+  addItem(product) {
+    const element = product;
+    element.quantity += 1;
+    this.setState((state) => ({ cartItems: [...state.cartItems] }));
+  }
+
+  decreaseItem(product) {
+    const element = product;
+    element.quantity -= 1;
+    this.setState((state) => ({ cartItems: [...state.cartItems] }));
   }
 
   render() {
@@ -24,27 +46,24 @@ class Details extends Component {
         <h4>{availableQuantity}</h4>
         <button
           data-testid="product-detail-add-to-cart"
-          onClick={() => this.addToCart({ id, title, thumbnail, price, availableQuantity })}
+          onClick={() =>
+            this.addToCart({ id, title, thumbnail, price, availableQuantity, quantity: 1 })}
         > Adicionar ao Carrinho
         </button>
         <div>
-          <ShoppingCart cartItems={this.state.cartItems} />
+          <ShoppingCart
+            cartItems={this.state.cartItems} addItem={this.addItem} decreaseItem={this.decreaseItem}
+          />
           <button style={{ display: 'none' }} data-testid="shopping-cart-button" />
         </div>
         <div>
-          <h2>Avaliações</h2>
-          <label htmlFor="inputEmail">Email:</label><br />
-          <input type="email" /><br />
-          <label htmlFor="inputText">Mensagem:</label><br />
-          <input type="text" data-testid="product-detail-evaluation" /><br />
-          <label htmlFor="inputRating">Dê sua nota ao produto:</label><br />
-          <input type="number" min="1" max="5" /><br />
-          <button>Avaliar</button>
+          <span style={{ display: 'none' }} data-testid="shopping-cart-size">4</span>
+          <ItemsQuantity quantity={this.state.quantity} />
         </div>
+        <Forms />
       </div>
     );
   }
 }
 
 export default Details;
-

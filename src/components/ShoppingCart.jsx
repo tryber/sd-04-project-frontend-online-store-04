@@ -8,7 +8,7 @@ export default class ShoppingCart extends React.Component {
   }
 
   render() {
-    const { cartItems } = this.props;
+    const { cartItems, addItem, decreaseItem } = this.props;
     if (cartItems.length < 1) return <EmptyCart />;
     return (
       <div>
@@ -16,7 +16,13 @@ export default class ShoppingCart extends React.Component {
         {cartItems.map((item) => (
           <div key={item.id}>
             <p data-testid="shopping-cart-product-name">{item.title}</p>
-            <p data-testid="shopping-cart-product-quantity">1</p>
+            <button data-testid="product-increase-quantity" onClick={() => addItem(item)}>+</button>
+            <p data-testid="shopping-cart-product-quantity">{item.quantity}</p>
+            <button
+              data-testid="product-decrease-quantity"
+              onClick={() => decreaseItem(item)}
+            >-
+            </button>
           </div>
         ))}
       </div>

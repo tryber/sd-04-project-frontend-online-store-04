@@ -27,7 +27,7 @@ class Categories extends Component {
       <div className="categories-products">
         <div>
           {categories.map((element) =>
-            <CategoriesCard key={element.id} categorie={element}getProducts={this.getProducts} />,
+            <CategoriesCard key={element.id} categorie={element} getProducts={this.getProducts} />,
           )}
         </div>
         <div>
