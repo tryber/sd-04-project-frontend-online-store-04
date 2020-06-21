@@ -24,7 +24,7 @@ class ProductsList extends Component {
     element.quantity += 1;
     this.setState((state) => ({ cartItems: [...state.cartItems] }));
   }
-  
+
   decreaseItem(product) {
     const element = product;
     element.quantity -= 1;
