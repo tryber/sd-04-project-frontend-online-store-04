@@ -37,12 +37,14 @@ class ProductsList extends Component {
 
   render() {
     const { cartItems, quantity } = this.state;
-    if (!this.props.products) return <div />;
+    const { products } = this.props;
+    if (!products) return <div />;
     return (
       <div>
-        {this.props.products.map(({ id, title, thumbnail, price, available_quantity }) => (
+        {products.map(({ id, title, thumbnail, price, available_quantity, shipping }) => (
           <div data-testid="product" key={id}>
             <p>{title}</p><img src={thumbnail} alt="produto" /><p>{`R$ ${price.toFixed(2)}`}</p>
+            {(shipping.free_shipping) ? <p data-testid="free-shipping">Frete grátis</p> : <p />}
             <Link
               to={{
                 pathname: `/details/${id}`,
@@ -61,8 +63,7 @@ class ProductsList extends Component {
           <ShoppingCart
             cartItems={cartItems} addItem={this.addItem} decreaseItem={this.decreaseItem}
           />
-        </div>
-        <div data-testid="shopping-cart-size"><ItemsQuantity quantity={quantity} /></div>
+        </div><div data-testid="shopping-cart-size"><ItemsQuantity quantity={quantity} /></div>
       </div>
     );
   }
