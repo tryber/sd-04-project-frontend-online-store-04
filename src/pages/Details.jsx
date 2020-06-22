@@ -24,30 +24,33 @@ class Details extends Component {
 
   addItem(product) {
     const element = product;
-    element.quantity += 1;
+    if (element.available_quantity > element.quantity) {
+      element.quantity += 1;
+    }
     this.setState((state) => ({ cartItems: [...state.cartItems] }));
   }
 
   decreaseItem(product) {
     const element = product;
-    element.quantity -= 1;
+    if (element.quantity > 1) {
+      element.quantity -= 1;
+    }
     this.setState((state) => ({ cartItems: [...state.cartItems] }));
   }
 
   render() {
     const { availableQuantity } = this.props.location.state.available_quantity;
-    const { id, title, thumbnail, price } = this.props.location.state;
+    const { id, title, thumbnail, price, available_quantity } = this.props.location.state;
     return (
       <div>
-        <h2>{id}</h2>
         <h3 data-testid="product-detail-name">{title}</h3>
         <img src={thumbnail} alt="product" />
-        <h3>{price}</h3>
-        <h4>{availableQuantity}</h4>
+        <h3>Preço: {price}</h3>
+        <h4>Estoque disponível: {availableQuantity}</h4>
         <button
           data-testid="product-detail-add-to-cart"
           onClick={() =>
-            this.addToCart({ id, title, thumbnail, price, availableQuantity, quantity: 1 })}
+            this.addToCart({ id, title, thumbnail, price, available_quantity, quantity: 1 })}
         > Adicionar ao Carrinho
         </button>
         <div>

@@ -21,13 +21,17 @@ class ProductsList extends Component {
 
   addItem(product) {
     const element = product;
-    element.quantity += 1;
+    if (element.available_quantity > element.quantity) {
+      element.quantity += 1;
+    }
     this.setState((state) => ({ cartItems: [...state.cartItems] }));
   }
 
   decreaseItem(product) {
     const element = product;
-    element.quantity -= 1;
+    if (element.quantity > 1) {
+      element.quantity -= 1;
+    }
     this.setState((state) => ({ cartItems: [...state.cartItems] }));
   }
 
