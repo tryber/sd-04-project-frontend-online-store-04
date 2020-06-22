@@ -11,6 +11,7 @@ function App() {
           <Route exact path="/" component={pages.Main} />
           <Route path="/cart" component={pages.Cart} />
           <Route path="/details/" component={pages.Details} />
+          <Route path="/checkout" component={pages.Checkout} />
           <Route component={pages.NotFound} />
         </Switch>
       </Router>
