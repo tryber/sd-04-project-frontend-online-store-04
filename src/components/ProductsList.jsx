@@ -44,7 +44,7 @@ class ProductsList extends Component {
         {products.map(({ id, title, thumbnail, price, available_quantity, shipping }) => (
           <div data-testid="product" key={id}>
             <p>{title}</p><img src={thumbnail} alt="produto" /><p>{`R$ ${price.toFixed(2)}`}</p>
-            {(shipping.free_shipping) ? <p data-testid="free-shipping">Frete grátis</p> : <p />}
+            {(shipping.free_shipping) ? <p data-testid="free-shipping">Frete grátis!</p> : <p />}
             <Link
               to={{
                 pathname: `/details/${id}`,
